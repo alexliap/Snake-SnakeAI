@@ -1,1 +1,1 @@
-- The basic snake game with 2 separate levels.s
+- The basic snake game with 2 separate levels.
