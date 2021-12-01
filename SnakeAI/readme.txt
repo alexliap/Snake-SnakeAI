@@ -1,0 +1,2 @@
+- The basic snake game with reinforcement learning.
+- Under development (doesn't work properly quite yet).
