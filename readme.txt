@@ -1,1 +1,2 @@
 - The basic snake game with 2 separate levels.
+- Controled by the player using the arrow keys.

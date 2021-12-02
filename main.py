@@ -5,6 +5,25 @@ from Levels.levels import Levels
 
 
 class SnakeGame:
+    """
+    Snake Game Initialization.
+
+    Args:
+        screen_width: int
+            Width of the screen.
+
+        screen_height: int
+            Height of the screen.
+
+        grid_width: int
+            Number of game blocks along the X axis.
+
+        grid_height: int
+            Number of game blocks along the Y axis.
+
+        gridsize: int
+            X and Y dimension of the game blocks.
+    """
     def __init__(self, screen_width, screen_height, grid_width,
                  grid_height, gridsize):
         self.screen_width = screen_width
@@ -30,6 +49,9 @@ class SnakeGame:
         self.levels = Levels()
 
     def draw_grid(self):
+        """
+        Draws the grid according to the grid dimensions.
+        """
         for y in range(0, int(self.grid_height)):
             for x in range(0, int(self.grid_width)):
                 if (x + y) % 2 == 0:
@@ -42,6 +64,10 @@ class SnakeGame:
                     pygame.draw.rect(self.surface, (84, 194, 205), rr)
 
     def reward_punish(self):
+        """
+        Checks if the snake ate the food (reward) or steped into a banned location
+        (punishment).
+        """
         # REWARD
         if self.snake.get_head_position() == self.food.position:
             self.snake.length += 1
@@ -55,6 +81,10 @@ class SnakeGame:
             self.food.randomize_position()
 
     def play_step(self):
+        """
+        Series of functions that happen every time the clock ticks (i.e. on every
+        fps). The game loop essentially.
+        """
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
@@ -81,6 +111,10 @@ class SnakeGame:
         return self.score
 
     def load_food_banned_positions(self):
+        """
+        Load the levels before they are drawn to prevent food from spawning on
+        them.
+        """
         self.food.banned_positions = [*self.levels.block_positions,
                                       *self.snake.positions]
         if self.score >= 8:
@@ -96,6 +130,9 @@ class SnakeGame:
             self.food.banned_positions = [*spots, *self.snake.positions]
 
     def draw_level(self):
+        """
+        Makes the levels appear on the grid.
+        """
         if self.score >= 10:
             self.levels.draw_level2(self.surface, self.screen_width,
                                     self.screen_height, self.gridsize)

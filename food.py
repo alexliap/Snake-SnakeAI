@@ -3,6 +3,19 @@ import random
 
 
 class Food(object):
+    """
+    Food obnject of the game.
+
+    Args:
+        grid_width: int
+            Number of game blocks along the X axis.
+
+        grid_height: int
+            Number of game blocks along the Y axis.
+
+        gridsize: int
+            X and Y dimension of the game blocks.
+    """
     def __init__(self, gridsize, grid_width, grid_height):
         self.position = (0, 0)
         self.banned_positions = []

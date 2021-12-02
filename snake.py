@@ -4,6 +4,25 @@ import random
 
 
 class Snake(object):
+    """
+    Snake object of the game.
+
+    Args:
+        screen_width: int
+            Width of the screen
+
+        screen_height: int
+            Height of the screen
+
+        grid_width: int
+            Number of game blocks along the X axis.
+
+        grid_height: int
+            Number of game blocks along the Y axis.
+
+        gridsize: int
+            X and Y dimension of the game blocks.
+    """
     def __init__(self, screen_width, screen_height, gridsize, grid_width,
                  grid_height):
         self.screen_width = screen_width
